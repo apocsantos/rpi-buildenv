@@ -3,10 +3,12 @@ RPi-BuildEnv
 
 This is a set of scrips for preparing a build environment.
 
+Updated 2022/08/09 apocsantos to support raspbian bullseye
+
 Dependencies
 ------------
 
-You should have installed `debootstrap`, `qemu-debootstrap` (`qemu-user-static` package on Debian/Ubuntu) and `chroot`.
+You should have installed `debootstrap`, `debootstrap` (`qemu-user-static` package on Debian/Ubuntu) and `chroot`.
 
 Usage
 -----
