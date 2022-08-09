@@ -2,6 +2,8 @@
 #
 # Script for setup a build environment for Raspberry Pi.
 #
+# updated 2022 bullseye apocsantos
+# Original credits to:
 # Author:
 #     Sergio Conde <skgsergio@gmail.com>
 #     https://github.com/skgsergio/rpi-buildenv
@@ -11,7 +13,8 @@
 
 RASPBIAN_MIRROR="http://archive.raspbian.org"
 #RASPBIAN_MIRROR="http://raspbian.sconde.net"
-RASPBIAN_VERSION="wheezy"  # jessie
+RASPBIAN_VERSION="bullseye"  # jessie #bullseye
+
 
 chk_dep() {
     if [[ $($cmd_sudo which $1) == "" ]]; then
@@ -35,7 +38,7 @@ chk_dep chroot coreutils
 
 print_msg "Downloading Raspbian rootfs...\n"
 
-$cmd_sudo qemu-debootstrap --no-check-gpg --include=ca-certificates,git-core,binutils,curl --arch armhf $RASPBIAN_VERSION $rootfs_dir $RASPBIAN_MIRROR/raspbian/
+$cmd_sudo debootstrap --no-check-gpg --include=ca-certificates,git-core,binutils,curl --arch armhf $RASPBIAN_VERSION $rootfs_dir $RASPBIAN_MIRROR/raspbian/
 
 print_msg "Configuring rootfs...\n"
 
