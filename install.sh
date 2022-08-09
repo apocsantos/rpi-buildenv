@@ -36,6 +36,9 @@ chk_dep debootstrap debootstrap
 chk_dep qemu-debootstrap qemu-user-static
 chk_dep chroot coreutils
 
+debootstrap --components=main,restricted,universe --include=lxc bullseye rootfs
+
+
 print_msg "Downloading Raspbian rootfs...\n"
 
 $cmd_sudo debootstrap --no-check-gpg --include=ca-certificates,git-core,binutils,curl --arch armhf $RASPBIAN_VERSION $rootfs_dir $RASPBIAN_MIRROR/raspbian/
